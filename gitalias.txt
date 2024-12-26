@@ -1660,13 +1660,17 @@
     git push --set-upstream origin \"$new_branch\"; \
   };f"
 
-	# Create a new branch with Jira prefix and based on the existing 'topic-begin' alias.
-	jira = "!f() { \
+	# Create a new branch with Jira prefix (if available) and based on the existing 'topic-begin' alias.
+  jira = "!f() { \
     prefix=\"$1\"; \
-    jira_id=\"$(git config --local jira.prefix)\$2\"; \
-    branch_name=\"$prefix/$jira_id-$(echo \"$3\" | tr ' ' '-')\"; \
+    jira_id=\"$(git config --local jira.prefix)\"; \
+    if [[ -n $jira_id ]]; then \
+        branch_name=\"$prefix/$jira_id\$2-$(echo \"$3\" | tr ' ' '-')\"; \
+    else \
+        branch_name=\"$prefix/\$2-$(echo \"$3\" | tr ' ' '-')\"; \
+    fi; \
     git topic-begin \"$branch_name\"; \
-	}; f"
+  }; f"
 
   # Stop a topic branch; this must be the current branch.
   #
