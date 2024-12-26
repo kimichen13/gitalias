@@ -1672,6 +1672,11 @@
     git topic-begin \"$branch_name\"; \
   }; f"
 
+  # Rebase the current Jira topic branch onto the base topic branch.
+  jira-rebase = "!f() { \
+    git fetch && git rebase origin/$(git topic-base-branch); \
+  }; f"
+
   # Stop a topic branch; this must be the current branch.
   #
   # Example:
