@@ -532,14 +532,6 @@
   # Last annotated tag in all branches
   last-tagged = "!git describe --tags \"$(git rev-list --tags --max-count=1)\""
 
-  tag-push = "!f() { \
-      if [ $# -ne 2 ]; then \
-          echo \"Usage: git tag-push <tag_name> <commit_hash>\"; \
-          return 1; \
-      fi; \
-      git tag $1 $2 && git push origin $1; \
-  }; f"
-
   # From <https://gist.github.com/492227>
   heads = "!git log origin/main.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
 
@@ -1659,23 +1651,6 @@
     git checkout -b \"$new_branch\" \"$old_branch\"; \
     git push --set-upstream origin \"$new_branch\"; \
   };f"
-
-  # Create a new branch with Jira prefix (if available) and based on the existing 'topic-begin' alias.
-  jira = "!f() { \
-    prefix=\"$1\"; \
-    jira_id=\"$(git config --local jira.prefix)\"; \
-    if [[ -n $jira_id ]]; then \
-        branch_name=\"$prefix/$jira_id$2-$(echo \"$3\" | tr ' ' '-')\"; \
-    else \
-        branch_name=\"$prefix/$2-$(echo \"$3\" | tr ' ' '-')\"; \
-    fi; \
-    git topic-begin \"$branch_name\"; \
-  }; f"
-
-  # Rebase the current Jira topic branch onto the base topic branch.
-  jira-rebase = "!f() { \
-    git fetch && git rebase origin/$(git topic-base-branch); \
-  }; f"
 
   # Stop a topic branch; this must be the current branch.
   #
