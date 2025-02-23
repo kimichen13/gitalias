@@ -2,6 +2,54 @@
 
 A customized collection of Git aliases focused on topic branch and Jira workflow management, based on the comprehensive [GitAlias](https://github.com/GitAlias/gitalias) project.
 
+## Common Shortcuts
+
+### Basic Commands
+* `git a` - Short for `git add`
+* `git b` - Short for `git branch`
+* `git c` - Short for `git commit`
+* `git d` - Short for `git diff`
+* `git f` - Short for `git fetch`
+* `git l` - Short for `git log`
+* `git m` - Short for `git merge`
+* `git o` - Short for `git checkout`
+* `git p` - Short for `git pull`
+* `git s` - Short for `git status`
+
+### Frequent Operations
+* `git aa` - Add all changes
+* `git ap` - Add changes interactively (patch)
+* `git cm` - Commit with message
+* `git ca` - Amend last commit
+* `git cane` - Amend last commit without editing message
+
+## Status & Information
+* `git ss` - Short status
+* `git ssb` - Short status with branch info
+* `git bv` - Branch list with details
+* `git bvv` - Branch list with upstream info
+
+## Reset & Undo Operations
+* `git reset-commit` - Soft reset of last commit
+* `git reset-commit-hard` - Hard reset of last commit
+* `git uncommit` - Undo last commit
+* `git unadd` - Unstage changes
+* `git discard` - Discard changes in working directory
+* `git cleanout` - Clean and reset working directory
+
+## Sync & Update Operations
+* `git get` - Fetch, pull with rebase, and update submodules
+* `git put` - Commit all changes and push
+* `git push1` - Push current branch to origin
+* `git pull1` - Pull current branch from origin
+* `git pushy` - Force push with lease (safer than --force)
+
+## Log & History
+* `git lg` - Log with graph
+* `git lo` - Log one line per commit
+* `git ll` - Detailed log with graph and formatting
+* `git who` - Show contributor statistics
+
 ## Setup and Configuration Aliases
 
 * `git setup` - Sets up Git aliases by configuring the topic base branch and Jira prefix
@@ -40,6 +88,13 @@ A customized collection of Git aliases focused on topic branch and Jira workflow
   - Creates "wip" commit
 * `git unwip` - Restores from work in progress:
   - Resets last commit if it was a "wip" commit
+
+## Stash Operations
+* `git snapshot` - Stash changes while keeping them in working directory
+
+## Utility Commands
+* `git aliases` - List all configured aliases
+* `git panic` - Create emergency backup tarball
 
 ## Core Utilities
 
