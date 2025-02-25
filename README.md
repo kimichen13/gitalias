@@ -29,11 +29,15 @@ cd gitalias
 
 2. Include the aliases in your global Git config:
 ```bash
-# Add to your global Git config
-git config --global include.path "$PWD/kimi.gitalias.ini"
-
-# Or copy to your home directory and include it (you can rename the file if you prefer)
+# Recommended: Copy to your home directory (works on all systems)
+# For Unix/Linux/macOS
 cp kimi.gitalias.ini ~/.kimi.gitalias.ini
+# For Windows (using Command Prompt)
+copy kimi.gitalias.ini %USERPROFILE%\.kimi.gitalias.ini
+# For Windows (using PowerShell)
+copy kimi.gitalias.ini $HOME\.kimi.gitalias.ini
+
+# Then configure Git to use it
 git config --global include.path "~/.kimi.gitalias.ini"
 ```
 
