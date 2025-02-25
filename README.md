@@ -2,10 +2,40 @@
 
 A customized collection of Git aliases focused on topic branch and Jira workflow management, based on the comprehensive [GitAlias](https://github.com/GitAlias/gitalias) project.
 
-## 📚 Documentation
+## 📥 Installation
 
-- [Workflow Guide](WORKFLOW.md) - Comprehensive daily Git workflow guide
-- [Original GitAlias](https://github.com/GitAlias/gitalias) - Full collection of Git aliases
+There are two ways to install these Git aliases. 
+
+> Note: The configuration file is named `.kimi.gitalias.ini`, but feel free to rename it to any name you prefer (e.g., `.my.gitalias.ini`). Just make sure to use the same name in both the download/copy command and the `git config` command.
+
+### Option 1: Quick Install (Using curl)
+
+```bash
+# Download and install directly to your home directory
+curl -o ~/.kimi.gitalias.ini https://raw.githubusercontent.com/kimicla/gitalias/main/kimi.gitalias.ini
+git config --global include.path "~/.kimi.gitalias.ini"
+
+# Verify installation
+git aliases  # Should list all available aliases
+```
+
+### Option 2: Using Git Clone
+
+1. Clone this repository:
+```bash
+git clone https://github.com/kimicla/gitalias.git
+cd gitalias
+```
+
+2. Include the aliases in your global Git config:
+```bash
+# Add to your global Git config
+git config --global include.path "$PWD/kimi.gitalias.ini"
+
+# Or copy to your home directory and include it (you can rename the file if you prefer)
+cp kimi.gitalias.ini ~/.kimi.gitalias.ini
+git config --global include.path "~/.kimi.gitalias.ini"
+```
 
 ## 🚀 Quick Start
 
@@ -19,6 +49,11 @@ git push1   # Push to remote
 ```
 
 For detailed workflow instructions, please check our [Workflow Guide](WORKFLOW.md).
+
+## 📖 Documentation
+
+- [Workflow Guide](WORKFLOW.md) - Comprehensive daily Git workflow guide
+- [Original GitAlias](https://github.com/GitAlias/gitalias) - Full collection of Git aliases
 
 ## 🔧 Available Aliases
 
